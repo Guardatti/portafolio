@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@400;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "poppins";
+}
+
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #191919;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding: 20;
+    color: aquamarine;
+}
+
+.logo span{
+    color: white;
+}
+
+ul{
+    display: flex;
+}
+
+ul li a{
+    padding: 20;
+    font-weight: 600;
+    color: #FDFEFE;
+}
+
+ul li a:hover{
+    color: #B3B6B7;
+}
+
+#check{
+    display: none;
+}
+
+.menu-hamburguer{
+    display: none !important;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.home{
+    width: 100%;
+    height: 100%;
+    margin-top: 80px;
+    background-image: url(./Imagenes/home.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .conteiner-home{
+    height: 60%;
+    width: 25%;
+    background-color: #191919;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20;
+}
+
+.home .conteiner-home .img{
+    height: 35%;
+    width: 45%;
+    border-radius: 50%;
+    border: 5px solid black;
+    margin-bottom: 24px;
+}
+
+.home .conteiner-home .info{
+    color: white;
+    flex-direction: column;
+    text-align: center;
+}
+
+.home .conteiner-home .info h1{
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.home .conteiner-home .info h2{
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.home .conteiner-home .social-links i{
+    color: aquamarine;
+    font-size: 28px;
+    margin-top: 28px;
+    padding: 20;
+}
+
+.about-me{
+    height: 80%;
+    width: 100%;
+    background-color: #191919;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about-me .text-about-me{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50;
+}
+
+.about-me .text-about-me h2{
+    color: white;
+    font-size: 52px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.about-me .text-about-me p{
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.about-me .conteiner-about-me{
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #101010;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.about-me .conteiner-about-me h2{
+    color: white;
+    font-size: 25px;
+    margin: 15px;
+    text-align: center;
+}
+
+.about-me .conteiner-about-me h3{
+    color: white;
+    margin: 15px;
+}
+
+.about-me .conteiner-about-me span{
+    color: aquamarine;
+}
+
+.skills{
+    height: 100%;
+    width: 100%;
+    background-color: #101010;
+}
+
+.skills .text-skills{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills .text-skills h2{
+    color: white;
+    font-size: 52px;
+    font-weight: 600;
+}
+
+.skills .conteiner-skills{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.skills .conteiner-skills i{
+    font-size: 38px;
+    margin: 5;
+}
+
+.skills .conteiner-skills .bar{
+    height: 6px;
+    width: 30%;
+    background-color: gray;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10;
+}
+
+.skills .conteiner-skills .bar .percentage-html{
+    display: block;
+    height: 100%;
+    width: 85%;
+    background-color: aquamarine;
+}
+
+.skills .conteiner-skills .bar .percentage-css{
+    display: block;
+    height: 100%;
+    width: 65%;
+    background-color: aquamarine;
+}
+
+.skills .conteiner-skills .bar .percentage-javacript{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background-color: aquamarine;
+}
+
+.skills .conteiner-skills .bar .percentage-react{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background-color: aquamarine;
+}
+
+.skills .conteiner-skills .bar .percentage-node{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background-color: aquamarine;
+}
+
+.skills .conteiner-skills .bar .percentage-angular{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background-color: aquamarine;
+}
+
+.skills .conteiner-skills .bar .percentage-python{
+    display: block;
+    height: 100%;
+    width: 75%;
+    background-color: aquamarine;
+}
+
+.skills .conteiner-skills .bar .percentage-php{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background-color: aquamarine;
+}
+
+.skills .conteiner-skills .bar .percentage-mysql{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background-color: aquamarine;
+}
+
+.curriculum{
+    height: 80%;
+    width: 100%;
+    background-color: #191919;
+}
+
+.curriculum .text-curriculum{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.curriculum .text-curriculum h2{
+    color: white;
+    font-size: 52px;
+    font-weight: 600;
+    margin-top: 20;
+}
+
+.curriculum .conteiner-curriculum{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.curriculum .conteiner-curriculum .conteiner-curriculum-spanish{
+    background-color: #101010;
+    height: 60%;
+    width: 30%;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.curriculum .conteiner-curriculum .conteiner-curriculum-spanish h2{
+    color: white;
+    font-size: 32px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.curriculum .conteiner-curriculum .conteiner-curriculum-spanish a{
+    background-color: aquamarine;
+    padding: 20 50 20 50;
+    border-radius: 5px;
+    color: #191919;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.curriculum .conteiner-curriculum .conteiner-curriculum-spanish a:hover{
+    background-color: rgb(0, 255, 170);
+}
+
+
+.curriculum .conteiner-curriculum .conteiner-curriculum-english{
+    background-color: #101010;
+    height: 60%;
+    width: 30%;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.curriculum .conteiner-curriculum .conteiner-curriculum-english h2{
+    color: white;
+    font-size: 32px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.curriculum .conteiner-curriculum .conteiner-curriculum-english a{
+    background-color: aquamarine;
+    padding: 20 50 20 50;
+    border-radius: 5px;
+    color: #191919;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.curriculum .conteiner-curriculum .conteiner-curriculum-english a:hover{
+    background-color: rgb(0, 255, 170);
+}
+
+.portafolio{
+    background-color: #101010;
+    width: 100%;
+    height: 70%;
+}
+
+.portafolio .text-portafolio{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portafolio .text-portafolio h2{
+    color: white;
+    font-size: 52px;
+    font-weight: 600;
+}
+
+.portafolio .conteiner-projects{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portafolio .conteiner-projects .projects{
+    width: 50%;
+    height: 80%;
+    background-color: #191919;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portafolio .conteiner-projects a{
+    width: 0%;
+    flex-grow: 1;
+    transition: 0.6s ease;
+}
+
+.portafolio .conteiner-projects a:hover{
+    cursor: pointer;
+    width: 14.5%;
+}
+
+.contact{
+    height: 90%;
+    width: 100%;
+    background-image: url(./Imagenes/contact.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.contact .text-contact{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact .text-contact h2{
+    color: white;
+    font-size: 52px;
+    font-weight: 600;
+}
+
+.contact form{
+    width: 100%;
+    height: 70%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact form .column{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 15;
+}
+
+.contact form .column label{
+    color: white;
+    font-size: 21px;
+}
+
+.contact form input[type="text"],
+.contact form input[type="tel"],
+.contact form input[type="email"],
+.contact form textarea{
+    padding: 10 45 10 10;
+    border-radius: 10px;
+}
+
+.contact form input[type="submit"]{
+    text-align: center;
+    border-radius: 10px;
+    background-color: #191919;
+    color: white;
+    padding: 10 100 10 100;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.contact form input[type="submit"]:hover{
+    background-color: #242424;
+}
+
+footer{
+    width: 100%;
+    background-color: #191919;
+    text-align: center;
+    padding: 50 0 30 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+footer .nav-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .nav-footer h2{
+    color: white;
+    border-bottom: 2px solid aquamarine;
+}
+
+footer .nav-footer a{
+    padding: 10;
+    color: white;
+    font-weight: 600;
+}
+
+footer .social-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social-links i{
+    font-size: 28px;
+    padding: 20;
+}
+
+footer .social-links .fa-instagram{
+    color: purple;
+}
+
+footer .social-links .fa-github{
+    color: white;
+}
+
+footer .social-links .fa-linkedin{
+    color: rgb(0, 119, 255);
+}
+
+footer .social-links h2{
+    color: white;
+    border-bottom: 2px solid aquamarine;
+}
