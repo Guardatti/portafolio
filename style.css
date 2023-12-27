@@ -60,7 +60,7 @@ ul li a:hover{
 
 .home{
     width: 100%;
-    height: 100%;
+    padding: 150 0 150 0;
     margin-top: 80px;
     background-image: url(./Imagenes/home.jpg);
     background-size: cover;
@@ -72,8 +72,8 @@ ul li a:hover{
 }
 
 .home .conteiner-home{
-    height: 60%;
-    width: 25%;
+    height: 500px;
+    width: 500px;
     background-color: #191919;
     border-radius: 10%;
     display: flex;
@@ -84,10 +84,9 @@ ul li a:hover{
 }
 
 .home .conteiner-home .img{
-    height: 35%;
-    width: 45%;
+    width: 140px;
     border-radius: 50%;
-    border: 5px solid black;
+    border: 2px solid black;
     margin-bottom: 24px;
 }
 
@@ -97,13 +96,13 @@ ul li a:hover{
 
 .home .conteiner-home .info h1{
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 300;
 }
 
 .home .conteiner-home .info h2{
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 300;
 }
 
@@ -115,13 +114,13 @@ ul li a:hover{
 }
 
 .about-me{
-    height: 80%;
     width: 100%;
     background-color: #191919;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 100 0 100 0;
 }
 
 .about-me .text-about-me{
@@ -136,21 +135,21 @@ ul li a:hover{
 
 .about-me .text-about-me h2{
     color: white;
-    font-size: 52px;
+    font-size: 45px;
     font-weight: 600;
     margin-bottom: 50px;
 }
 
 .about-me .text-about-me p{
     color: white;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     text-align: center;
 }
 
 .about-me .conteiner-about-me{
-    height: 50%;
-    width: 50%;
+    height: 370px;
+    width: 900px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -176,14 +175,14 @@ ul li a:hover{
 }
 
 .skills{
-    height: 100%;
     width: 100%;
+    padding: 10 0 10 0;
     background-color: #101010;
 }
 
 .skills .text-skills{
     width: 100%;
-    height: 15%;
+    padding: 50;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -191,13 +190,13 @@ ul li a:hover{
 
 .skills .text-skills h2{
     color: white;
-    font-size: 52px;
+    font-size: 45px;
     font-weight: 600;
 }
 
 .skills .conteiner-skills{
-    height: 85%;
     width: 100%;
+    padding: 50;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -282,14 +281,13 @@ ul li a:hover{
 }
 
 .curriculum{
-    height: 80%;
     width: 100%;
     background-color: #191919;
 }
 
 .curriculum .text-curriculum{
     width: 100%;
-    height: 20%;
+    padding: 50;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -297,14 +295,13 @@ ul li a:hover{
 
 .curriculum .text-curriculum h2{
     color: white;
-    font-size: 52px;
+    font-size: 45px;
     font-weight: 600;
     margin-top: 20;
 }
 
 .curriculum .conteiner-curriculum{
-    height: 80%;
-    width: 100%;
+    padding: 50;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -312,8 +309,8 @@ ul li a:hover{
 
 .curriculum .conteiner-curriculum .conteiner-curriculum-spanish{
     background-color: #101010;
-    height: 60%;
-    width: 30%;
+    height: 350px;
+    width: 500px;
     border: 2px solid aquamarine;
     border-radius: 10px;
     display: flex;
@@ -347,8 +344,8 @@ ul li a:hover{
 
 .curriculum .conteiner-curriculum .conteiner-curriculum-english{
     background-color: #101010;
-    height: 60%;
-    width: 30%;
+    height: 350px;
+    width: 500px;
     border: 2px solid aquamarine;
     border-radius: 10px;
     display: flex;
@@ -382,12 +379,11 @@ ul li a:hover{
 .portafolio{
     background-color: #101010;
     width: 100%;
-    height: 70%;
 }
 
 .portafolio .text-portafolio{
     width: 100%;
-    height: 30%;
+    padding: 50;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -400,20 +396,19 @@ ul li a:hover{
 }
 
 .portafolio .conteiner-projects{
-    width: 100%;
-    height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50;
 }
 
 .portafolio .conteiner-projects .projects{
-    width: 50%;
-    height: 80%;
+    width: 700px;
+    height: 300px;
     background-color: #191919;
     border-radius: 10px;
     overflow: hidden;
-    border: 2px solid aquamarine;
+    border: 1px solid aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -431,7 +426,6 @@ ul li a:hover{
 }
 
 .contact{
-    height: 90%;
     width: 100%;
     background-image: url(./Imagenes/contact.jpg);
     background-repeat: no-repeat;
@@ -441,7 +435,7 @@ ul li a:hover{
 
 .contact .text-contact{
     width: 100%;
-    height: 20%;
+    padding: 50;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -455,7 +449,6 @@ ul li a:hover{
 
 .contact form{
     width: 100%;
-    height: 70%;
     display: grid;
     justify-content: space-around;
     align-items: center;
@@ -550,6 +543,7 @@ footer .social-links h2{
 
     .menu-hamburguer{
         display: flex !important;
+        margin-right: 10;
     }
 
     ul{
@@ -584,19 +578,18 @@ footer .social-links h2{
     }
 
     .home .conteiner-home{
-        width: 65%;
-        height: 60%;
+        width: 400px;
+        height: 500px;
     }
 
     .home .conteiner-home .img{
-        height: 30%;
-        width: 40%;
+        width: 120px;
         border-radius: 50%;
         border: 2px solid black;
     }
 
     .home .conteiner-home .info h1{
-        font-size: 28px;
+        font-size: 25px;
     }
 
     .home .conteiner-home .info h2{
@@ -604,11 +597,11 @@ footer .social-links h2{
     }
 
     .about-me .text-about-me h2{
-        font-size: 42px;
+        font-size: 40px;
     }
 
     .about-me .text-about-me p{
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .about-me .conteiner-about-me{
@@ -624,11 +617,11 @@ footer .social-links h2{
     }
 
     .skills .text-skills h2{
-        font-size: 42px;
+        font-size: 40px;
     }
 
     .skills .conteiner-skills .bar{
-        width: 60%;
+        width: 400px;
     }
 
     .skills .conteiner-skills i{
@@ -636,33 +629,35 @@ footer .social-links h2{
     }
 
     .curriculum .text-curriculum h2{
-        font-size: 42px;
+        font-size: 40px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-english{
-        width: 45%;
+        width: 200px;
+        height: 300px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-english h2{
-        font-size: 28px;
+        font-size: 25px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-english a{
-        font-size: 18px;
-        padding: 20 40 20 40;
+        font-size: 15px;
+        padding: 20 15 20 15;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-spanish{
-        width: 45%;
+        width: 200px;
+        height: 300px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-spanish h2{
-        font-size: 28px;
+        font-size: 25px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-spanish a{
-        font-size: 18px;
-        padding: 20 40 20 40;
+        font-size: 15px;
+        padding: 20 15 20 15;
     }
 
     .portafolio .text-portafolio h2{
@@ -717,6 +712,7 @@ footer .social-links h2{
     
     .menu-hamburguer{
         display: flex !important;
+        margin-right: 10;
     }
 
     ul{
@@ -751,13 +747,12 @@ footer .social-links h2{
     }
 
     .home .conteiner-home{
-        width: 85%;
-        height: 50%;
+        width: 300px;
+        height: 450px;
     }
 
     .home .conteiner-home .img{
-        width: 40%;
-        height: 30%;
+        width: 100px;
     }
 
     .home .conteiner-home .info h1{
@@ -785,7 +780,8 @@ footer .social-links h2{
     }
 
     .about-me .conteiner-about-me{
-        width: 95%;
+        width: 300px;
+        height: 350px;
     }
 
     .about-me .conteiner-about-me h2{
@@ -797,43 +793,53 @@ footer .social-links h2{
     }
 
     .skills .conteiner-skills .bar{
-        width: 60%;
+        width: 250px;
     }
 
     .skills .conteiner-skills i{
         font-size: 28px;
     }
 
+    .curriculum .conteiner-curriculum{
+        flex-direction: column;
+    }
+
     .curriculum .conteiner-curriculum .conteiner-curriculum-english{
-        width: 45%;
-        height: 40%;
+        width: 250px;
+        height: 250px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-english h2{
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-english a{
-        font-size: 16px;
-        padding: 20 5 20 5;
+        font-size: 15px;
+        padding: 20 15 20 15;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-spanish{
-        width: 45%;
-        height: 40%;
+        width: 250px;
+        height: 250px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-spanish h2{
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .curriculum .conteiner-curriculum .conteiner-curriculum-spanish a{
-        font-size: 16px;
-        padding: 20 5 20 5;
+        font-size: 15px;
+        padding: 20 15 20 15;
+    }
+
+    .curriculum .conteiner-curriculum .conteiner-curriculum-english,
+    .curriculum .conteiner-curriculum .conteiner-curriculum-spanish{
+        margin: 20;
     }
 
     .portafolio .conteiner-projects .projects{
-        width: 90%;
+        width: 300px;
+        height: 300px;
     }
 
     .contact form .column label{
