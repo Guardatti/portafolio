@@ -1,0 +1,177 @@
+---
+
+const navItems = [
+    {
+        name: 'Inicio',
+        href: '#inicio'
+    },
+    {
+        name: 'Sobre mi',
+        href: '#sobre-mi'
+    },
+    {
+        name: 'Proyectos',
+        href: '#proyectos'
+    },
+    {
+        name: 'Contacto',
+        href: '#contacto'
+    },
+]
+
+const props = Astro.props
+
+---
+
+<header>
+    <div class="container-navbar">
+        <a href="#">
+            <img src="/logo.png" alt="Logo">
+        </a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" {...props} id="menu-toggle">
+            <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5h16M4 12h16M4 19h16" />
+        </svg>
+        <nav id="nav">
+            <ul>
+                {
+                    navItems.map((x) => {
+                        return (
+                            <li>
+                                <a href={x.href} id="ancor">{x.name}</a>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </nav>
+    </div>
+    <div class="overlay" />
+</header>
+
+<style>
+
+    header {
+        width: 100%;
+        height: 80px;
+        background-color: #191919;
+        z-index: 2;
+    }
+
+    .container-navbar{
+        max-width: 768px;
+        height: 100%;
+        padding: 0rem 1rem 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+
+    }
+
+    .container-navbar a {
+        color: rgb(123, 243, 203);
+    }
+
+    svg {
+        cursor: pointer;
+    }
+
+    nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(1.5px);
+        padding: 1.5rem 0 1.5rem 0;
+        transform: translateX(-150%);
+        transition: 0.3s ease-in;
+        z-index: 2;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        padding-left: 1rem;
+        gap: 40px
+    }
+
+    nav ul li a {
+        color: #fff;
+    }
+
+    .open-menu {
+        transform: translateX(0%);
+        transition: 0.3s ease-out;
+    }
+
+    .overlay {
+        position: absolute;
+        background-color: #000000;
+        opacity: 0;
+        top: 80px;
+        width: 100%;
+        height: calc(100vh - 80px);
+        display: none;
+    }
+
+    .open-overlay {
+        opacity: 0.5;
+        z-index: 1;
+        display: block;
+    }
+
+    @media screen and (min-width: 769px) {
+        
+        svg { 
+            display: none;
+        }
+
+        nav { 
+            position: static;
+            transform: translateX(0%);
+            width: auto;
+            background: none;
+            backdrop-filter: none;
+        }
+
+        nav ul {
+            flex-direction: row;
+        }
+        
+    }
+
+</style>
+
+<script>
+
+    const button_menu = document.getElementById('menu-toggle')
+    const container_menu = document.getElementById('nav')
+    const overlay = document.querySelector('.overlay')
+    const ancors = document.querySelectorAll('#ancor')
+    
+    button_menu?.addEventListener('click', () => {
+        container_menu?.classList.toggle('open-menu')
+        overlay?.classList.toggle('open-overlay')
+    })
+
+    overlay?.addEventListener('click', () => {
+        container_menu?.classList.remove('open-menu')
+        overlay?.classList.remove('open-overlay')
+    })
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 769) {
+            container_menu?.classList.remove('open-menu')
+            overlay?.classList.remove('open-overlay')
+        }
+    })
+
+    ancors.forEach((a) => {
+        a.addEventListener('click', () => {
+            container_menu?.classList.remove('open-menu')
+            overlay?.classList.remove('open-overlay')
+        })
+    })
+
+</script>
