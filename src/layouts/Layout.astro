@@ -42,3 +42,34 @@ import Footer from "../components/Footer.astro"
 	}
 
 </style>
+
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- ScrollReveal desde CDN -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script>
+	
+	document.addEventListener("DOMContentLoaded", () => {
+
+		const sr = ScrollReveal({
+		distance: "10px",
+		duration: 500,
+		easing: "ease-out",
+		reset: false,
+		origin: "bottom"
+		});
+
+		sr.reveal("h1, h2, h3, p, a", { interval: 0 });
+
+		sr.reveal(".container-aboutme, .container-projects", { interval: 0 });
+
+		sr.reveal(".tools li", { interval: 0 });
+
+		sr.reveal(".projects article", { interval: 0 });
+
+	});
+
+</script>
+
+

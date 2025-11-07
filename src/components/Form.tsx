@@ -1,8 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
 import emailjs from '@emailjs/browser'
 import '../styles/form.css'
+import ScrollReveal from 'scrollreveal';
+
 
 interface FormData {
     user_name: string,
@@ -19,7 +21,10 @@ const Form: React.FC = () => {
 
     const form = useRef<HTMLFormElement>(null);
 
-    const onSubmit = () => {
+    const onSubmit = (data: any) => {
+
+        console.log(data);
+        
 
         setLoading(true);
 
@@ -32,48 +37,67 @@ const Form: React.FC = () => {
         .then(
             () => {
             toast.success('Mensaje enviado con éxito', {
-            position: "bottom-center",
-            autoClose: 2000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
             });
             form.current?.reset();
             setLoading(false);
             },
             () => {
-            toast.error('Error al enviar el mensaje', {
-            position: "bottom-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
+                toast.error('Error al enviar el mensaje', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
             });
             setLoading(false);
             },
         );
     };
+
+    useEffect(() => {
+
+        if (typeof window !== "undefined") {
+            import("scrollreveal").then((ScrollRevealModule) => {
+            const sr = ScrollRevealModule.default({
+                distance: "30px",
+                duration: 800,
+                easing: "ease-out",
+                origin: "bottom",
+            });
+
+            sr.reveal(".container-contact-form, .container-input-contact-form", {
+                interval: 0,
+            });
+            });
+        }
+
+    }, []);
     
     return (
         <>
             <form ref={form} onSubmit={handleSubmit(onSubmit)} className='container-contact-form'>
                 <div className='container-input-contact-form'>
                     <input type="text" {...register('user_name', {required: true})} id="nombre" placeholder='Nombre'/>
-                    {errors.user_name && <span style={{fontSize: '12px', color: 'red', width: '80%'}}>Campo obligatorio</span>}
+                    {errors.user_name && <span style={{fontSize: '12px', color: 'red', width: '100%'}}>Campo obligatorio</span>}
                 </div>
                 <div className='container-input-contact-form'>
                     <input type="email" {...register("user_email", {required: "Campo obligatorio", pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "El email no es válido"}})} placeholder="Email" />
-                    {errors.user_email && <span style={{fontSize: '12px', color: 'red', width: '80%'}}>{errors.user_email.message}</span>}
+                    {errors.user_email && <span style={{fontSize: '12px', color: 'red', width: '100%'}}>{errors.user_email.message}</span>}
                 </div>
                 <div className='container-input-contact-form'>
                     <textarea className='textarea-contact-form' {...register('message', {required: true})} placeholder='Escribe tu mensaje aquí'></textarea>
-                    {errors.message && <span style={{fontSize: '12px', color: 'red', width: '80%'}}>Campo obligatorio</span>}
+                    {errors.message && <span style={{fontSize: '12px', color: 'red', width: '100%'}}>Campo obligatorio</span>}
                 </div>
                 <div className='container-input-contact-form'>
                     {

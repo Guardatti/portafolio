@@ -18,10 +18,12 @@
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.66.0",
     "react-toastify": "^11.0.5",
+    "scrollreveal": "^4.0.9",
     "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
     "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2"
+    "@types/react-dom": "^19.2.2",
+    "@types/scrollreveal": "^0.0.11"
   }
 }
