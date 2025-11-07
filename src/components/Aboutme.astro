@@ -124,7 +124,7 @@ const toolItems = [
     <div class="container-aboutme">
         <div class="container-info">
             <h2>Sobre mí</h2>
-            <div>
+            <div class="container-1">
                 <p> Soy desarrollador full stack [MERN] y estudiante de Ingeniería en Sistemas en la UTN FRC.</p>
                 <p>He trabajado en proyectos consumiendo APIs externas, así como en aplicaciones completas donde he diseñado tanto el frontend como el backend.</p>
                 <p>Me apasiona el desarrollo web y siempre busco mejorar mis habilidades, tanto en el front-end como en el back-end.</p>
@@ -171,13 +171,16 @@ const toolItems = [
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
     }
 
     .container-info h2, .container-info p, .container-tools h2 {
         color: #fff;
         font-weight: 400;
         text-align: center;
+    }
+
+    .container-1, .tools {
+        padding-top: 2rem;
     }
 
     .tools {
@@ -194,18 +197,17 @@ const toolItems = [
         align-items: center;
         justify-content: center;
         border: 1px solid #fff;
-        border: 1px solid #333;
-        border-radius: 8px;
-        background-color: #191919;
+        border-color: #797979; 
+        border-radius: 5%;
+        background-color: #12131b;
         height: 150px;
         width: 150px;
         transition: 0.3s ease-in;
     }
 
     .tools li:hover {
-        transform: scale(1.05); 
-        border-color: #797979; 
-                transition: 0.3s ease-out;
+        transform: scale(1.05);
+        transition: 0.3s ease-out;
     }
 
     .tools li a {
