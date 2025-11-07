@@ -1,11 +1,16 @@
 ---
 
+import Form from "./Form.tsx";
+
 ---
 
 <section>
     <div class="container-form">
         <div>
             <h2>Contacto</h2>
+        </div>
+        <div class="container-form">
+            <Form />
         </div>
     </div>
 </section>
@@ -21,6 +26,9 @@
         max-width: 768px;
         margin: 0 auto;
         padding: 2rem 1rem 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     .container-form div h2 {
@@ -28,5 +36,7 @@
         text-align: center;
         font-weight: 400;
     }
+
+
 
 </style>
