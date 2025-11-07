@@ -1,0 +1,230 @@
+---
+
+const toolItems = [
+    {
+        src: '/tools/astro.svg',
+        name: 'Astro',
+        href: 'https://astro.build/'
+    },
+    {
+        src: '/tools/css.svg',
+        name: 'CSS',
+        href: 'https://developer.mozilla.org/es/docs/Web/CSS'
+    },
+    {
+        src: '/tools/express.svg',
+        name: 'Express',
+        href: 'https://expressjs.com/'
+    },
+    {
+        src: '/tools/git.svg',
+        name: 'Git',
+        href: 'https://git-scm.com/'
+    },
+    {
+        src: '/tools/github.svg',
+        name: 'Github',
+        href: 'https://github.com/'
+    },
+    {
+        src: '/tools/html.svg',
+        name: 'HTML',
+        href: 'https://developer.mozilla.org/es/docs/Web/HTML'
+    },
+    {
+        src: '/tools/intellij.svg',
+        name: 'IntelliJ',
+        href: 'https://www.jetbrains.com/es-es/idea/'
+    },
+    {
+        src: '/tools/javascript.svg',
+        name: 'Javascript',
+        href: 'https://developer.mozilla.org/es/docs/Web/JavaScript'
+    },
+    {
+        src: '/tools/jwt.svg',
+        name: 'JWT',
+        href: 'https://www.jwt.io/'
+    },
+    {
+        src: '/tools/mongo.svg',
+        name: 'Mongo',
+        href: 'https://www.mongodb.com/'
+    },
+    {
+        src: '/tools/mongoose.svg',
+        name: 'Mongoose',
+        href: 'https://mongoosejs.com/'
+    },
+    {
+        src: '/tools/node.svg',
+        name: 'Node',
+        href: 'https://nodejs.org/es'
+    },
+    {
+        src: '/tools/npm.svg',
+        name: 'NPM',
+        href: 'https://www.npmjs.com/'
+    },
+    {
+        src: '/tools/pnpm.svg',
+        name: 'PNPM',
+        href: 'https://pnpm.io/'
+    },
+    {
+        src: '/tools/pycharm.svg',
+        name: 'Pycharm',
+        href: 'https://www.jetbrains.com/es-es/pycharm/download/?section=windows'
+    },
+    {
+        src: '/tools/react.svg',
+        name: 'React',
+        href: 'https://react.dev/'
+    },
+    {
+        src: '/tools/redux.svg',
+        name: 'Redux',
+        href: 'https://redux.js.org/'
+    },
+    {
+        src: '/tools/sequelize.svg',
+        name: 'Sequelize',
+        href: 'https://sequelize.org/'
+    },
+    {
+        src: '/tools/sqlite.svg',
+        name: 'Sqlite',
+        href: 'https://sqlite.org/'
+    },
+    {
+        src: '/tools/typescript.svg',
+        name: 'Typescript',
+        href: 'https://www.typescriptlang.org/'
+    },
+    {
+        src: '/tools/vercel.svg',
+        name: 'Vercel',
+        href: 'https://vercel.com/'
+    },
+    {
+        src: '/tools/vite.svg',
+        name: 'Vite',
+        href: 'https://vite.dev/'
+    },
+    {
+        src: '/tools/vscode.svg',
+        name: 'Vscode',
+        href: 'https://code.visualstudio.com/'
+    }
+]
+
+---
+
+<section id="sobre-mi">
+    <div class="container-aboutme">
+        <div class="container-info">
+            <h2>Sobre mí</h2>
+            <div>
+                <p> Soy desarrollador full stack [MERN] y estudiante de Ingeniería en Sistemas en la UTN FRC.</p>
+                <p>He trabajado en proyectos consumiendo APIs externas, así como en aplicaciones completas donde he diseñado tanto el frontend como el backend.</p>
+                <p>Me apasiona el desarrollo web y siempre busco mejorar mis habilidades, tanto en el front-end como en el back-end.</p>
+            </div>
+        </div>
+        <div class="container-tools">
+            <h2>Herramientas</h2>
+            <ul class="tools">
+                {
+                    toolItems.map((x) => {
+                        return(
+                            <li>
+                                <a href={x.href} target="_blank">
+                                    <img src={x.src} alt={x.name} />
+                                    <span>{x.name}</span>
+                                </a>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    section {
+        background-color: #101010;
+        width: 100%;
+    }
+
+    .container-aboutme {
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 2rem 1rem 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .container-info, .container-tools {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .container-info h2, .container-info p, .container-tools h2 {
+        color: #fff;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .tools {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 45px;
+    }
+
+    .tools li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #fff;
+        border: 1px solid #333;
+        border-radius: 8px;
+        background-color: #191919;
+        height: 150px;
+        width: 150px;
+        transition: 0.3s ease-in;
+    }
+
+    .tools li:hover {
+        transform: scale(1.05); 
+        border-color: #797979; 
+                transition: 0.3s ease-out;
+    }
+
+    .tools li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .tools li a img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .tools li a span {
+        color: #fff;
+    } 
+
+</style>

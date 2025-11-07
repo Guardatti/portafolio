@@ -1,5 +1,120 @@
 ---
 
+import Typewriter from "astro-typewriter";
+
+const props = Astro.props
+
 ---
 
-asd
+<section id="inicio">
+    <div class="container-hero">
+        <div class="container-1">
+            <div class="container-img">
+                <img src="/perfil.png" alt="Perfil">
+            </div>
+            <div class="container-info">
+                <h1>¡Hola, soy <span>Nicolás Guardatti</span>!</h1>
+                <p>
+                <Typewriter 
+                    messages={[
+                    "Desarrollador Full Stack | MERN",
+                    "Estudiante de Ingeniería en Sistemas",
+                    ]} 
+                    writeSpeed={100} 
+                    deleteSpeed={50}
+                    waitWritten={1000}
+                    waitDeleted={500}>
+                    loop={true}
+                />
+                </p>
+                <div class="networks">
+                    <a href="https://github.com/Guardatti" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" {...props}>
+                            <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5c.08-1.25-.27-2.48-1-3.5c.28-1.15.28-2.35 0-3.5c0 0-1 0-3 1.5c-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5c-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4" />
+                                <path d="M9 18c-4.51 2-5-2-7-2" />
+                            </g>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nicol%C3%A1s-guardatti-14b22125b/" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" {...props}>
+                            <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2a2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z" />
+                                <circle cx="4" cy="4" r="2" />
+                            </g>
+                        </svg>
+                    </a>
+                    <a href="" download>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" {...props}>
+                            <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2" />
+                                <path d="M11 12.5a1.5 1.5 0 0 0-3 0v3a1.5 1.5 0 0 0 3 0m2-4.5l1.5 6l1.5-6" />
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    section { 
+        width: 100%;
+        background-color: #191919;
+    }
+
+    .container-hero {
+        max-width: 768px;
+        margin: 0 auto;
+        padding: 8rem 1rem 8rem 1rem;
+    }
+
+    .container-1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .container-img {
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 3px solid #ccc;
+        box-shadow: 0px 0px 5px 1px rgba(123,243,203,1);
+    }
+
+    .container-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        object-position: top;
+    }
+
+    .container-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .container-info h1, .container-info p {
+        color: #fff;
+        text-align: center;
+    }
+
+    .networks {
+        display: flex;
+        gap: 10px;
+    }
+
+    span {
+        color: #7BF3CB;
+    }
+
+</style>
