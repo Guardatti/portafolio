@@ -38,7 +38,8 @@ import Footer from "../components/Footer.astro"
 	body {
 		display: grid;
 		min-height: 100dvh;
-		grid-template-rows: auto 1fr auto;
+		grid-template-rows: 1fr auto;
+		background-color: #101010;
 	}
 
 </style>
@@ -60,13 +61,7 @@ import Footer from "../components/Footer.astro"
 		origin: "bottom"
 		});
 
-		sr.reveal("h1, h2, h3, p, a", { interval: 0 });
-
-		sr.reveal(".container-aboutme, .container-projects", { interval: 0 });
-
-		sr.reveal(".tools li", { interval: 0 });
-
-		sr.reveal(".projects article", { interval: 0 });
+		sr.reveal("h1,h2, h3, p, a, li,  container-aboutme, container-projects, .tools li, .projects article", { interval: 0 });
 
 	});
 

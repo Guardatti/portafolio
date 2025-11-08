@@ -15,16 +15,13 @@ interface FormData {
 
 const Form: React.FC = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+    const { register, handleSubmit } = useForm<FormData>();
 
     const [loading, setLoading] = useState<boolean>(false);
 
     const form = useRef<HTMLFormElement>(null);
 
-    const onSubmit = (data: any) => {
-
-        console.log(data);
-        
+    const onSubmit = () => {
 
         setLoading(true);
 
@@ -88,16 +85,16 @@ const Form: React.FC = () => {
         <>
             <form ref={form} onSubmit={handleSubmit(onSubmit)} className='container-contact-form'>
                 <div className='container-input-contact-form'>
-                    <input type="text" {...register('user_name', {required: true})} id="nombre" placeholder='Nombre'/>
-                    {errors.user_name && <span style={{fontSize: '12px', color: 'red', width: '100%'}}>Campo obligatorio</span>}
+                    <input type="text" {...register('user_name', {required: true})} id="name" placeholder=" "/>
+                    <label htmlFor="name" className="label-input">Nombre</label>
                 </div>
                 <div className='container-input-contact-form'>
-                    <input type="email" {...register("user_email", {required: "Campo obligatorio", pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "El email no es válido"}})} placeholder="Email" />
-                    {errors.user_email && <span style={{fontSize: '12px', color: 'red', width: '100%'}}>{errors.user_email.message}</span>}
+                    <input type="email" {...register("user_email", {required: "Campo obligatorio", pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "El email no es válido"}})} id="email" placeholder=" "/>
+                    <label htmlFor="email" className="label-input">Email</label>                    
                 </div>
                 <div className='container-input-contact-form'>
-                    <textarea className='textarea-contact-form' {...register('message', {required: true})} placeholder='Escribe tu mensaje aquí'></textarea>
-                    {errors.message && <span style={{fontSize: '12px', color: 'red', width: '100%'}}>Campo obligatorio</span>}
+                    <textarea className='textarea-contact-form' {...register('message', {required: true})} id="message" placeholder=" "></textarea>
+                    <label htmlFor="message" className="label-textarea">Escribe tu mensaje</label>
                 </div>
                 <div className='container-input-contact-form'>
                     {
