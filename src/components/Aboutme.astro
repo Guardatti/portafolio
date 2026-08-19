@@ -125,9 +125,9 @@ const toolItems = [
 
 ---
 
-<section id="sobre-mi">
+<section id="sobre-mi" class="editor-panel">
     <div class="container-aboutme">
-        <div class="container-info">
+        <div class="container-info" data-fade-in>
             <h2>Sobre mí</h2>
             <div class="container-1">
                 <p> Soy desarrollador full stack [MERN] y estudiante de Ingeniería en Sistemas en la UTN FRC.</p>
@@ -135,13 +135,13 @@ const toolItems = [
                 <p>Me apasiona el desarrollo web y siempre busco mejorar mis habilidades, tanto en el front-end como en el back-end.</p>
             </div>
         </div>
-        <div class="container-tools">
+        <div class="container-tools" data-fade-in>
             <h2>Herramientas</h2>
             <ul class="tools">
                 {
                     toolItems.map((x) => {
                         return(
-                            <li>
+                            <li data-tool-item>
                                 <a href={x.href} target="_blank">
                                     <img src={x.src} alt={x.name} />
                                     <span>{x.name}</span>
@@ -160,6 +160,7 @@ const toolItems = [
     section {
         background-color: #101010;
         width: 100%;
+        min-height: 100%;
     }
 
     .container-aboutme {
@@ -233,5 +234,24 @@ const toolItems = [
     .tools li a span {
         color: #fff;
     } 
+
+    [data-fade-in], [data-tool-item] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    [data-fade-in].is-visible, [data-tool-item].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [data-fade-in], [data-tool-item] {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+    }
 
 </style>

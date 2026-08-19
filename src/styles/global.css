@@ -8,3 +8,25 @@
     list-style: none;
     font-family: 'Poppins', sans-serif;
 }
+
+.editor-panel {
+    display: none;
+}
+
+.editor-panel.active {
+    display: block;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #101010;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3a3a3a;
+    border-radius: 10px;
+    border: 2px solid #101010;
+}

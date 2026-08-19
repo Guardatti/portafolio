@@ -6,15 +6,15 @@ const props = Astro.props
 
 ---
 
-<section id="inicio">
+<section id="inicio" class="editor-panel active">
     <div class="container-hero">
         <div class="container-1">
-            <div class="container-img">
-                <img src="/perfil.png" alt="Perfil">
+            <div class="container-img" data-hero-item>
+                <img src="/perfil1.png" alt="Perfil">
             </div>
             <div class="container-info">
-                <h1>¡Hola, soy <span>Nicolás Guardatti</span>!</h1>
-                <p>
+                <h1 data-hero-item>¡Hola, soy <span>Nicolás Guardatti</span>!</h1>
+                <p data-hero-item>
                 <Typewriter 
                     messages={[
                     "Desarrollador Full Stack | MERN",
@@ -27,7 +27,7 @@ const props = Astro.props
                     loop={true}
                 />
                 </p>
-                <div class="networks">
+                <div class="networks" data-hero-item>
                     <a href="https://github.com/Guardatti" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" {...props}>
                             <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -63,13 +63,19 @@ const props = Astro.props
 
     section { 
         width: 100%;
+        min-height: 100%;
         background-color: #191919;
     }
 
     .container-hero {
         max-width: 768px;
+        width: 100%;
+        min-height: 100%;
         margin: 0 auto;
-        padding: 13rem 1rem 8rem 1rem;
+        padding: 4rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .container-1 {
@@ -115,6 +121,25 @@ const props = Astro.props
 
     span {
         color: #7BF3CB;
+    }
+
+    [data-hero-item] {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    [data-hero-item].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [data-hero-item] {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
     }
 
 </style>

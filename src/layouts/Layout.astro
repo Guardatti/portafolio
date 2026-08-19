@@ -3,8 +3,10 @@
 import "../styles/global.css";
 
 //Components
-import Navbar from "../components/Navbar.astro"
-import Footer from "../components/Footer.astro"
+import TitleBar from "../components/TitleBar.astro"
+import Sidebar from "../components/Sidebar.astro"
+import TabsBar from "../components/TabsBar.astro"
+import StatusBar from "../components/StatusBar.astro"
 ---
 
 
@@ -16,52 +18,173 @@ import Footer from "../components/Footer.astro"
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>Nicolas Guardatti | Portafolio</title>
 	</head>
 	<body>
-		<Navbar />
-		<main>
-			<slot />
-		</main>
-		<Footer />
+		<div class="editor-window">
+			<TitleBar />
+			<div class="editor-body">
+				<Sidebar />
+				<div class="editor-main">
+					<TabsBar />
+					<div class="editor-content" id="editor-content">
+						<slot />
+					</div>
+				</div>
+			</div>
+			<StatusBar />
+		</div>
 	</body>
 </html>
 
 <style>
 
-	html {
-		scroll-behavior: smooth;
+	html, body {
+		height: 100%;
 	}
 
 	body {
-		display: grid;
-		min-height: 100dvh;
-		grid-template-rows: 1fr auto;
+		background-color: #0a0a0a;
+		background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+		background-size: 24px 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+	}
+
+	.editor-window {
+		width: 100%;
+		max-width: 1400px;
+		height: calc(100dvh - 4rem);
+		max-height: 900px;
+		display: flex;
+		flex-direction: column;
 		background-color: #101010;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+		overflow: hidden;
+	}
+
+	.editor-body {
+		flex: 1;
+		display: flex;
+		min-height: 0;
+	}
+
+	.editor-main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+	}
+
+	.editor-content {
+		flex: 1;
+		overflow-y: auto;
+	}
+
+	@media screen and (max-width: 768px) {
+		body {
+			padding: 0;
+		}
+
+		.editor-window {
+			width: 100%;
+			height: 100dvh;
+			max-height: none;
+			border-radius: 0;
+			border: none;
+		}
 	}
 
 </style>
 
-<script src="https://unpkg.com/scrollreveal"></script>
-
 <script>
-	
-	document.addEventListener("DOMContentLoaded", () => {
 
-		const sr = ScrollReveal({
-		distance: "10px",
-		duration: 500,
-		easing: "ease-out",
-		reset: false,
-		origin: "bottom"
+	const TAB_IDS = ["inicio", "sobre-mi", "proyectos", "contacto"];
+	const DEFAULT_TAB = "inicio";
+
+	const tabButtons = document.querySelectorAll<HTMLElement>("[data-tab]");
+	const panels = document.querySelectorAll<HTMLElement>(".editor-panel");
+	const sidebar = document.getElementById("sidebar");
+	const sidebarOverlay = document.getElementById("sidebar-overlay");
+	const sidebarToggle = document.getElementById("sidebar-toggle");
+	const editorContent = document.getElementById("editor-content");
+
+	function revealPanelContents(panel: HTMLElement) {
+		const items = panel.querySelectorAll<HTMLElement>(
+			"[data-hero-item], [data-fade-in], [data-tool-item], [data-project-card], [data-footer-fade], [data-contact-fade]"
+		);
+		items.forEach((el) => el.classList.remove("is-visible"));
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				items.forEach((el, i) => {
+					setTimeout(() => el.classList.add("is-visible"), i * 45);
+				});
+			});
+		});
+	}
+
+	function activateTab(tabId: string, options: { pushHistory?: boolean } = {}) {
+		if (!TAB_IDS.includes(tabId)) tabId = DEFAULT_TAB;
+
+		tabButtons.forEach((btn) => {
+			btn.classList.toggle("active", btn.dataset.tab === tabId);
 		});
 
-		sr.reveal("h1, h2, h3, p, a, li,  container-aboutme, container-projects, .tools li, .projects article", { interval: 0 });
+		panels.forEach((panel) => {
+			const isMatch = panel.id === tabId;
+			panel.classList.toggle("active", isMatch);
+			if (isMatch) revealPanelContents(panel);
+		});
 
+		if (editorContent) editorContent.scrollTop = 0;
+
+		if (options.pushHistory !== false) {
+			history.pushState(null, "", "#" + tabId);
+		}
+
+		closeSidebar();
+	}
+
+	function openSidebar() {
+		sidebar?.classList.add("open");
+		sidebarOverlay?.classList.add("open");
+	}
+
+	function closeSidebar() {
+		sidebar?.classList.remove("open");
+		sidebarOverlay?.classList.remove("open");
+	}
+
+	tabButtons.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const tabId = btn.dataset.tab;
+			if (tabId) activateTab(tabId);
+		});
 	});
 
+	sidebarToggle?.addEventListener("click", () => {
+		const isOpen = sidebar?.classList.contains("open");
+		if (isOpen) closeSidebar(); else openSidebar();
+	});
+
+	sidebarOverlay?.addEventListener("click", closeSidebar);
+
+	window.addEventListener("popstate", () => {
+		const initial = window.location.hash.replace("#", "") || DEFAULT_TAB;
+		activateTab(initial, { pushHistory: false });
+	});
+
+	window.addEventListener("resize", () => {
+		if (window.innerWidth >= 769) closeSidebar();
+	});
+
+	const initialTab = window.location.hash.replace("#", "") || DEFAULT_TAB;
+	activateTab(initialTab, { pushHistory: false });
+
 </script>
-
-

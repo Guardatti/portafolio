@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, ToastContainer } from 'react-toastify';
 import emailjs from '@emailjs/browser'
-import '../styles/form.css'
-import ScrollReveal from 'scrollreveal';
+import { motion, useReducedMotion } from 'framer-motion';
 
 
 interface FormData {
@@ -20,6 +19,23 @@ const Form: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const form = useRef<HTMLFormElement>(null);
+
+    const shouldReduceMotion = useReducedMotion();
+
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: { staggerChildren: shouldReduceMotion ? 0 : 0.1 },
+        },
+    };
+
+    const fieldVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+        },
+    };
 
     const onSubmit = () => {
 
@@ -62,41 +78,29 @@ const Form: React.FC = () => {
         );
     };
 
-    useEffect(() => {
-
-        if (typeof window !== "undefined") {
-            import("scrollreveal").then((ScrollRevealModule) => {
-            const sr = ScrollRevealModule.default({
-                distance: "30px",
-                duration: 800,
-                easing: "ease-out",
-                origin: "bottom",
-            });
-
-            sr.reveal(".container-contact-form, .container-input-contact-form", {
-                interval: 0,
-            });
-            });
-        }
-
-    }, []);
-    
     return (
         <>
-            <form ref={form} onSubmit={handleSubmit(onSubmit)} className='container-contact-form'>
-                <div className='container-input-contact-form'>
+            <motion.form
+                ref={form}
+                onSubmit={handleSubmit(onSubmit)}
+                className='container-contact-form'
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+            >
+                <motion.div className='container-input-contact-form' style={{ position: 'relative' }} variants={fieldVariants}>
                     <input type="text" {...register('user_name', {required: true})} id="name" placeholder=" "/>
                     <label htmlFor="name" className="label-input">Nombre</label>
-                </div>
-                <div className='container-input-contact-form'>
+                </motion.div>
+                <motion.div className='container-input-contact-form' style={{ position: 'relative' }} variants={fieldVariants}>
                     <input type="email" {...register("user_email", {required: "Campo obligatorio", pattern: {value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "El email no es válido"}})} id="email" placeholder=" "/>
                     <label htmlFor="email" className="label-input">Email</label>                    
-                </div>
-                <div className='container-input-contact-form'>
+                </motion.div>
+                <motion.div className='container-input-contact-form' style={{ position: 'relative' }} variants={fieldVariants}>
                     <textarea className='textarea-contact-form' {...register('message', {required: true})} id="message" placeholder=" "></textarea>
                     <label htmlFor="message" className="label-textarea">Escribe tu mensaje</label>
-                </div>
-                <div className='container-input-contact-form'>
+                </motion.div>
+                <motion.div className='container-input-contact-form' style={{ position: 'relative' }} variants={fieldVariants}>
                     {
                     loading ? (
                         <button className='loading-contact-form' disabled={true}>
@@ -105,11 +109,19 @@ const Form: React.FC = () => {
                     )
                     :
                     (
-                        <button type="submit" className="loading-contact-form">Enviar</button>
+                        <motion.button
+                            type="submit"
+                            className="loading-contact-form"
+                            whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
+                            whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            Enviar
+                        </motion.button>
                     )
                     }
-                </div>
-            </form>
+                </motion.div>
+            </motion.form>
             <ToastContainer />
         </>
     )

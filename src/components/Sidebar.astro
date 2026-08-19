@@ -1,0 +1,152 @@
+---
+
+const files = [
+    {
+        tab: 'inicio',
+        name: 'inicio.tsx',
+        color: '#61dafb',
+    },
+    {
+        tab: 'sobre-mi',
+        name: 'sobre-mi.md',
+        color: '#7BF3CB',
+    },
+    {
+        tab: 'proyectos',
+        name: 'proyectos.json',
+        color: '#f0c14b',
+    },
+    {
+        tab: 'contacto',
+        name: 'contacto.ts',
+        color: '#3178c6',
+    },
+]
+
+---
+
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <span>Explorador</span>
+    </div>
+    <div class="folder">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
+            <path fill="none" stroke="#ccc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9l6 6l6-6" />
+        </svg>
+        <span>PORTAFOLIO</span>
+    </div>
+    <ul class="file-list">
+        {
+            files.map((f) => (
+                <li>
+                    <button class="file-item" data-tab={f.tab} type="button">
+                        <span class="file-dot" style={`background-color: ${f.color}`}></span>
+                        <span>{f.name}</span>
+                    </button>
+                </li>
+            ))
+        }
+    </ul>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<style>
+
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+        background-color: #181818;
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 14px 0;
+        font-family: 'JetBrains Mono', monospace;
+        overflow-y: auto;
+    }
+
+    .sidebar-header {
+        padding: 0 16px 10px 16px;
+        font-size: 11px;
+        letter-spacing: 1px;
+        color: #6e6e6e;
+        text-transform: uppercase;
+    }
+
+    .folder {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 16px;
+        font-size: 12px;
+        color: #ddd;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .file-list {
+        margin-top: 4px;
+    }
+
+    .file-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 6px 16px 6px 30px;
+        background: none;
+        border: none;
+        border-left: 2px solid transparent;
+        color: #9d9d9d;
+        font-family: inherit;
+        font-size: 13px;
+        text-align: left;
+        cursor: pointer;
+        transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .file-item:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+        color: #eee;
+    }
+
+    .file-item.active {
+        background-color: rgba(123, 243, 203, 0.08);
+        border-left-color: #7BF3CB;
+        color: #fff;
+    }
+
+    .file-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .sidebar-overlay {
+        display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .sidebar {
+            position: fixed;
+            top: 38px;
+            left: 0;
+            bottom: 0;
+            z-index: 20;
+            transform: translateX(-100%);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar-overlay.open {
+            display: block;
+            position: fixed;
+            inset: 38px 0 0 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 19;
+        }
+    }
+
+</style>

@@ -2,13 +2,13 @@
 const props = Astro.props
 ---
 
-<section id="proyectos">
+<section id="proyectos" class="editor-panel">
     <div class="container-projects">
         <div class="container-1">
             <h2>Proyectos</h2>
         </div>
         <div class="projects">
-            <article>
+            <article data-project-card>
                 <div class="container-2">
                     <img src="/vitalis.png" alt="VANILIE">
                 </div>
@@ -34,7 +34,7 @@ const props = Astro.props
                     </a>
                 </div>
             </article>
-            <article>
+            <article data-project-card>
                 <div class="container-2">
                     <img src="/vanilie.png" alt="VANILIE">
                 </div>
@@ -60,7 +60,7 @@ const props = Astro.props
                     </a>
                 </div>
             </article>
-            <article>
+            <article data-project-card>
                 <div class="container-2">
                     <img src="/bearx.png" alt="BearX">
                 </div>
@@ -88,6 +88,7 @@ const props = Astro.props
 <style>
     section {
         width: 100%;
+        min-height: 100%;
         background-color: #191919;
     }
 
@@ -126,6 +127,28 @@ const props = Astro.props
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+    }
+
+    .projects article.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .projects article.is-visible:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        border-color: rgba(123, 243, 203, 0.3);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .projects article {
+            opacity: 1;
+            transform: none;
+            transition: box-shadow 0.35s ease, border-color 0.35s ease;
+        }
     }
 
     .container-2 {

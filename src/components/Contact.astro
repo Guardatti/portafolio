@@ -1,12 +1,13 @@
 ---
 
 import Form from "./Form.tsx";
+import "../styles/form.css";
 
 ---
 
-<section id="contacto">
+<section id="contacto" class="editor-panel">
     <div class="container-form">
-        <div>
+        <div data-contact-fade>
             <h2>Contacto</h2>
         </div>
         <div class="container-form">
@@ -19,6 +20,7 @@ import Form from "./Form.tsx";
 
     section { 
         width: 100%;
+        min-height: 100%;
         background-color: #101010;
     }
 
@@ -37,6 +39,23 @@ import Form from "./Form.tsx";
         font-weight: 400;
     }
 
+    [data-contact-fade] {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
+    [data-contact-fade].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        [data-contact-fade] {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+    }
 
 </style>

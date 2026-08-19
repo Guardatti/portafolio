@@ -1,0 +1,123 @@
+---
+
+const tabs = [
+    {
+        tab: 'inicio',
+        name: 'inicio.tsx',
+        color: '#61dafb',
+    },
+    {
+        tab: 'sobre-mi',
+        name: 'sobre-mi.md',
+        color: '#7BF3CB',
+    },
+    {
+        tab: 'proyectos',
+        name: 'proyectos.json',
+        color: '#f0c14b',
+    },
+    {
+        tab: 'contacto',
+        name: 'contacto.ts',
+        color: '#3178c6',
+    },
+]
+
+---
+
+<div class="tabs-bar">
+    <div class="tabs-scroll">
+        {
+            tabs.map((t) => (
+                <button class="tab-item" data-tab={t.tab} type="button">
+                    <span class="tab-dot" style={`background-color: ${t.color}`}></span>
+                    <span class="tab-name">{t.name}</span>
+                    <span class="tab-close" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6L6 18M6 6l12 12" />
+                        </svg>
+                    </span>
+                </button>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+
+    .tabs-bar {
+        display: flex;
+        background-color: #1a1a1a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .tabs-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tabs-scroll {
+        display: flex;
+    }
+
+    .tab-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        background: none;
+        border: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+        border-top: 2px solid transparent;
+        color: #8a8a8a;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 13px;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .tab-item:hover {
+        color: #ddd;
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    .tab-item.active {
+        background-color: #101010;
+        color: #fff;
+        border-top-color: #7BF3CB;
+    }
+
+    .tab-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .tab-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        color: #888;
+        transition: opacity 0.15s ease;
+    }
+
+    .tab-item:hover .tab-close,
+    .tab-item.active .tab-close {
+        opacity: 1;
+    }
+
+    @media screen and (max-width: 768px) {
+        .tab-item {
+            padding: 10px 10px;
+        }
+
+        .tab-close {
+            display: none;
+        }
+    }
+
+</style>
